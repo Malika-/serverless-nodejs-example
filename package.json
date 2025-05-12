@@ -1,0 +1,12 @@
+{
+  "devDependencies": {
+    "dotenv": "^16.5.0",
+    "serverless": "^4.14.3"
+  },
+  "scripts": {
+    "serverless": "./node_modules/.bin/serverless",
+    "serverless:deploy": "npm run serverless -- deploy",
+    "serverless:deploy:list": "npm run serverless -- deploy list",
+    "serverless:deploy:remove": "npm run serverless -- remove"
+  }
+}

@@ -1,0 +1,29 @@
+# "org" ensures this Service is used with the correct Serverless Framework Access Key.
+org: visionable
+
+# "app" enables Serverless Framework Dashboard features and sharing them with other Services.
+app: serverless-test
+service: serverless-aws-nodejs-project
+
+provider:
+  environment:
+    API_KEY: ""
+    API_SECRET: ""
+  stage: "dev"
+  region: "us-east-1"
+  name: aws
+  runtime: nodejs22.x
+  memorySize: 512 # Default 1024 MB
+  httpApi:
+    cors: true
+
+functions:
+  main:
+    handler: app/dist/main.handler
+    events:
+      - http:
+          method: ANY
+          path: /
+      - http:
+          method: ANY
+          path: '{proxy+}'
